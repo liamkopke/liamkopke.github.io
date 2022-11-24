@@ -21,8 +21,8 @@ const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
-var selectedYear = "All";
-var selectedCategory = "All";
+var selectedYear = "all";
+var selectedCategory = "all";
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
 
