@@ -19,8 +19,10 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 // custom select variables
 const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
-const selectValue = document.querySelector("[data-selecct-value]");
+const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
+var selectedYear = "All";
+var selectedCategory = "All";
 
 select.addEventListener("click", function () { elementToggleFunc(this); });
 
@@ -29,9 +31,10 @@ for (let i = 0; i < selectItems.length; i++) {
   selectItems[i].addEventListener("click", function () {
 
     let selectedValue = this.innerText.toLowerCase();
+    selectedCategory = selectedValue;
     selectValue.innerText = this.innerText;
     elementToggleFunc(select);
-    filterFunc(selectedValue);
+    filterFunc();
 
   });
 }
@@ -39,15 +42,31 @@ for (let i = 0; i < selectItems.length; i++) {
 // filter variables
 const filterItems = document.querySelectorAll("[data-filter-item]");
 
-const filterFunc = function (selectedValue) {
+const filterFunc = function () {
 
   for (let i = 0; i < filterItems.length; i++) {
 
-    if (selectedValue === "all") {
+    if (selectedCategory === "all" && selectedYear === "all") {
       filterItems[i].classList.add("active");
-    } else if (selectedValue === filterItems[i].dataset.category) {
+    } 
+    else if (selectedCategory === "all") {
+      if (filterItems[i].dataset.category.includes(selectedYear)) {
+        filterItems[i].classList.add("active");
+      } else {
+        filterItems[i].classList.remove("active");
+      }
+    }
+    else if (selectedYear === "all") {
+      if (filterItems[i].dataset.category.includes(selectedCategory)) {
+        filterItems[i].classList.add("active");
+      } else {
+        filterItems[i].classList.remove("active");
+      }
+    }
+    else if (filterItems[i].dataset.category.includes(selectedCategory) && filterItems[i].dataset.category.includes(selectedYear)) {
       filterItems[i].classList.add("active");
-    } else {
+    } 
+    else {
       filterItems[i].classList.remove("active");
     }
 
@@ -63,12 +82,52 @@ for (let i = 0; i < filterBtn.length; i++) {
   filterBtn[i].addEventListener("click", function () {
 
     let selectedValue = this.innerText.toLowerCase();
+    selectedCategory = selectedValue;
     selectValue.innerText = this.innerText;
-    filterFunc(selectedValue);
+    filterFunc();
 
     lastClickedBtn.classList.remove("active");
     this.classList.add("active");
     lastClickedBtn = this;
+
+  });
+
+}
+
+// custom select variables
+const selectYearItems = document.querySelectorAll("[data-select-year-item]");
+const filterYearBtn = document.querySelectorAll("[data-filter-year-btn]");
+
+select.addEventListener("click", function () { elementToggleFunc(this); });
+
+// add event in all select items
+for (let i = 0; i < selectYearItems.length; i++) {
+  selectYearItems[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectedYear = selectedValue;
+    selectValue.innerText = this.innerText;
+    elementToggleFunc(select);
+    filterFunc();
+
+  });
+}
+
+// add event in all filter button items for large screen
+let lastClickedYearBtn = filterYearBtn[0];
+
+for (let i = 0; i < filterYearBtn.length; i++) {
+
+  filterYearBtn[i].addEventListener("click", function () {
+
+    let selectedValue = this.innerText.toLowerCase();
+    selectedYear = selectedValue
+    selectValue.innerText = this.innerText;
+    filterFunc();
+
+    lastClickedYearBtn.classList.remove("active");
+    this.classList.add("active");
+    lastClickedYearBtn = this;
 
   });
 

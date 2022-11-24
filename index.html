@@ -46,7 +46,10 @@
       <div class="sidebar-info">
 
         <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt="Liam Kopke" width="80">
+          <video width="170" autoplay loop>
+            <source src="./assets/images/videos/me.mov">
+            Error Message
+          </video>
         </figure>
 
         <div class="info-content">
@@ -687,34 +690,42 @@
         <section class="projects">
 
           <ul class="filter-list">
-
             <li class="filter-item">
               <button class="active" data-filter-btn>All</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Applications</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Web Development</button>
             </li>
-
             <li class="filter-item">
               <button data-filter-btn>Game Development</button>
-            </li>            
-
+            </li>
             <li class="filter-item">
               <button data-filter-btn>Unprofessional</button>
             </li>
-
+          </ul>
+          <ul class="filter-list">
+            <li class="filter-item">
+              <button class="active" data-filter-year-btn>All</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-year-btn>Year 1</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-year-btn>Year 2</button>
+            </li>
+            <li class="filter-item">
+              <button data-filter-year-btn>Year 3</button>
+            </li>
           </ul>
 
           <div class="filter-select-box">
 
             <button class="filter-select" data-select>
 
-              <div class="select-value" data-selecct-value>Select category</div>
+              <div class="select-value" data-select-value>Select category</div>
 
               <div class="select-icon">
                 <ion-icon name="chevron-down"></ion-icon>
@@ -745,12 +756,30 @@
               </li>
 
             </ul>
+            <ul class="select-list">
+
+              <li class="select-item">
+                <button data-select-year-item class="year">All</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-year-item class="year">Year 1</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-year-item class="year">Year 2</button>
+              </li>
+
+              <li class="select-item">
+                <button data-select-year-item class="year">Year 3</button>
+              </li>    
+            </ul>
 
           </div>
 
           <ul class="project-list">
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="project-item  active" data-filter-item  data-category="year 2 web development">
               <a href="#">
 
                 <figure class="project-img">
@@ -768,7 +797,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="game development">
+            <li class="project-item  active" data-filter-item data-category="year 3 game development">
               <a href="#">
 
                 <figure class="project-img">
@@ -786,7 +815,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="game development">
+            <li class="project-item  active" data-filter-item data-category="year 3 game development">
               <a href="#">
 
                 <figure class="project-img">
@@ -804,7 +833,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="game development">
+            <li class="project-item  active" data-filter-item data-category="year 3 game development">
               <a href="#">
 
                 <figure class="project-img">
@@ -822,7 +851,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="game development">
+            <li class="project-item  active" data-filter-item data-category="year 3 game development">
               <a href="#">
 
                 <figure class="project-img">
@@ -840,7 +869,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="game development">
+            <li class="project-item  active" data-filter-item data-category="year 3 game development">
               <a href="#">
 
                 <figure class="project-img">
@@ -858,7 +887,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="project-item  active" data-filter-item data-category="year 2 web development">
               <a href="#">
 
                 <figure class="project-img">
@@ -876,7 +905,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="web development">
+            <li class="project-item  active" data-filter-item data-category="year 2 web development">
               <a href="#">
 
                 <figure class="project-img">
@@ -894,7 +923,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="unprofessional">
+            <li class="project-item  active" data-filter-item data-category="year 2 unprofessional">
               <a href="#">
 
                 <figure class="project-img">
@@ -912,7 +941,7 @@
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
+            <li class="project-item  active" data-filter-item data-category="year 3 applications">
               <a href="#">
 
                 <figure class="project-img">
@@ -920,17 +949,17 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/projects/Microservices.png" alt="Microservices" loading="lazy">
+                  <img src="./assets/images/projects/Microservices.png" alt=".NetCore Microservices" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Microservices</h3>
+                <h3 class="project-title">.NetCore Microservices</h3>
 
                 <p class="project-category">Applications</p>
 
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
+            <li class="project-item  active" data-filter-item data-category="year 3 applications">
               <a href="#">
 
                 <figure class="project-img">
@@ -938,17 +967,17 @@
                     <ion-icon name="eye-outline"></ion-icon>
                   </div>
 
-                  <img src="./assets/images/projects/Shop.png" alt="Shop" loading="lazy">
+                  <img src="./assets/images/projects/Shop.png" alt=".NetCore Shop" loading="lazy">
                 </figure>
 
-                <h3 class="project-title">Shop</h3>
+                <h3 class="project-title">.NetCore Shop</h3>
 
                 <p class="project-category">Applications</p>
 
               </a>
             </li>
 
-            <li class="project-item  active" data-filter-item data-category="applications">
+            <li class="project-item  active" data-filter-item data-category="year 2 applications">
               <a href="#">
 
                 <figure class="project-img">
