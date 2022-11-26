@@ -885,7 +885,7 @@ main {
   margin-bottom: 25px;
 }
 
-.filter-select {
+.filter-category-select, .filter-year-select {
   background: var(--eerie-black-2);
   color: var(--light-gray);
   display: flex;
@@ -899,7 +899,7 @@ main {
   font-weight: var(--fw-300);
 }
 
-.filter-select.active .select-icon { transform: rotate(0.5turn); }
+.filter-category-select.active .select-icon, .filter-year-select.active .select-icon { transform: rotate(0.5turn); }
 
 .select-list {
   background: var(--eerie-black-2);
@@ -916,7 +916,7 @@ main {
   transition: 0.15s ease-in-out;
 }
 
-.filter-select.active + .select-list {
+.filter-category-select.active + .select-list, .filter-year-select.active + .select-list {
   opacity: 1;
   visibility: visible;
   pointer-events: all;

@@ -17,14 +17,14 @@ sidebarBtn.addEventListener("click", function () { elementToggleFunc(sidebar); }
 
 
 // custom select variables
-const select = document.querySelector("[data-select]");
+const categorySelect = document.querySelector("[data-category-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-select-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
 var selectedYear = "all";
 var selectedCategory = "all";
 
-select.addEventListener("click", function () { elementToggleFunc(this); });
+categorySelect.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
 for (let i = 0; i < selectItems.length; i++) {
@@ -33,7 +33,7 @@ for (let i = 0; i < selectItems.length; i++) {
     let selectedValue = this.innerText.toLowerCase();
     selectedCategory = selectedValue;
     selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
+    elementToggleFunc(categorySelect);
     filterFunc();
 
   });
@@ -97,8 +97,7 @@ for (let i = 0; i < filterBtn.length; i++) {
 // custom select variables
 const selectYearItems = document.querySelectorAll("[data-select-year-item]");
 const filterYearBtn = document.querySelectorAll("[data-filter-year-btn]");
-
-select.addEventListener("click", function () { elementToggleFunc(this); });
+const selectYearValue = document.querySelector("[data-select-year-value]");
 
 // add event in all select items
 for (let i = 0; i < selectYearItems.length; i++) {
@@ -106,8 +105,7 @@ for (let i = 0; i < selectYearItems.length; i++) {
 
     let selectedValue = this.innerText.toLowerCase();
     selectedYear = selectedValue;
-    selectValue.innerText = this.innerText;
-    elementToggleFunc(select);
+    elementToggleFunc(yearSelect);
     filterFunc();
 
   });
@@ -122,7 +120,6 @@ for (let i = 0; i < filterYearBtn.length; i++) {
 
     let selectedValue = this.innerText.toLowerCase();
     selectedYear = selectedValue
-    selectValue.innerText = this.innerText;
     filterFunc();
 
     lastClickedYearBtn.classList.remove("active");
