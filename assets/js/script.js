@@ -174,3 +174,52 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+// On see more button click, make p with class timeline-text-short within the same li be hidden and p with class timeline-text-expanded within the same li be visible and vise versa
+// Get all the buttons on the page
+const buttons = document.querySelectorAll('.timeline-item-seemore');
+
+// Loop through each button
+buttons.forEach(button => {
+  // Add a click event listener to the button
+  button.addEventListener('click', () => {
+    // Get the parent li element of the clicked button
+    const li = button.closest('.timeline-item');
+    
+    // Get the two p elements within the li element
+    const paragraphs = li.querySelectorAll('p');
+    
+    // Toggle the visibility of the paragraphs
+    paragraphs.forEach(p => {
+      p.classList.toggle('hidden');
+    });
+
+    button.innerText = button.innerText === 'See More...' ? 'See Less...' : 'See More...';
+  });
+});
+
+// get all .has-scrollbar elements
+const lists = document.querySelectorAll('.scroll-list');
+
+// Start the animation for each list
+lists.forEach(list => {
+  const liWidth = list.querySelector('li').offsetWidth;
+  const totalWidth = liWidth * list.children.length;
+  let translateX = 0;
+  list.style.transform = `translate(${translateX}px, 0)`;
+
+  function animate() {
+    translateX -= 1.25;
+    if (translateX <= -liWidth) {
+      const firstItem = list.querySelector('li');
+      translateX += liWidth;
+      list.style.transform = `translate(${translateX}px, 0)`;
+      list.appendChild(firstItem);
+    } else {
+      list.style.transform = `translate(${translateX}px, 0)`;
+    }
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+});

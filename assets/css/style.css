@@ -726,7 +726,11 @@ main {
  * #scroll 
  */
 
-.scroll { margin-bottom: 15px; }
+.scroll { 
+  margin-bottom: 15px; 
+  position: relative;
+  overflow: hidden;
+}
 
 .scroll-list {
   display: flex;
@@ -736,11 +740,6 @@ main {
   margin: 0 -15px;
   padding: 25px;
   padding-bottom: 25px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 25px;
 }
 
 .scroll-item {
@@ -750,13 +749,13 @@ main {
 
 .scroll-item img {
   width: 100%;
-  filter: grayscale(1);
+  filter: grayscale(0);
   transition: var(--transition-1);
 }
 
 .scroll-item img:hover
 { 
-  filter: grayscale(0); 
+  filter: grayscale(1); 
 }
 
 
@@ -798,7 +797,7 @@ main {
   margin-bottom: 7px;
 }
 
-.timeline-list span {
+.timeline-list span, .timeline-list button{
   color: var(--vegas-gold);
   font-weight: var(--fw-400);
   line-height: 1.6;
@@ -826,7 +825,7 @@ main {
   box-shadow: 0 0 0 4px var(--jet);
 }
 
-.timeline-text {
+.timeline-text{
   color: var(--light-gray);
   font-weight: var(--fw-300);
   line-height: 1.6;
@@ -1499,6 +1498,10 @@ textarea.form-input::-webkit-resizer { display: none; }
     height: 8px;
     width: 8px;
     left: -43px;
+  }
+
+  .hidden{
+    display: none;
   }
 
   .skills-item:not(:last-child) { margin-bottom: 25px; }
