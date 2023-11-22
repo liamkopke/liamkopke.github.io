@@ -1718,13 +1718,6 @@ textarea.form-input::-webkit-resizer {
     left: -43px;
   }
 
-  .hidden {
-    display: none;
-    visibility: hidden;
-    width: 0;
-    height: 0;
-  }
-
   .skills-item:not(:last-child) {
     margin-bottom: 25px;
   }
@@ -2183,4 +2176,8 @@ textarea.form-input::-webkit-resizer {
     max-width: 700px;
   }
 
-}
+
+
+  .hidden {
+    display: none;
+  }
