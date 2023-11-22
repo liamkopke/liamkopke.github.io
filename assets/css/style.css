@@ -3,14 +3,6 @@
 \*-----------------------------------*/
 
 
-/**
- * copyright 2022 @codewithsadee
- */
-
-
-
-
-
 /*-----------------------------------*\
   #CUSTOM PROPERTY
 \*-----------------------------------*/
@@ -1727,7 +1719,10 @@ textarea.form-input::-webkit-resizer {
   }
 
   .hidden {
-    display: none !important;
+    display: none;
+    visibility: hidden;
+    width: 0;
+    height: 0;
   }
 
   .skills-item:not(:last-child) {
