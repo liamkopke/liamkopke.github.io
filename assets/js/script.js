@@ -1,7 +1,5 @@
 'use strict';
 
-
-
 // element toggle function
 const elementToggleFunc = function (elem) { elem.classList.toggle("active"); }
 
@@ -48,7 +46,7 @@ const filterFunc = function () {
 
     if (selectedCategory === "all" && selectedYear === "all") {
       filterItems[i].classList.add("active");
-    } 
+    }
     else if (selectedCategory === "all") {
       if (filterItems[i].dataset.category.includes(selectedYear)) {
         filterItems[i].classList.add("active");
@@ -65,7 +63,7 @@ const filterFunc = function () {
     }
     else if (filterItems[i].dataset.category.includes(selectedCategory) && filterItems[i].dataset.category.includes(selectedYear)) {
       filterItems[i].classList.add("active");
-    } 
+    }
     else {
       filterItems[i].classList.remove("active");
     }
@@ -185,10 +183,10 @@ buttons.forEach(button => {
   button.addEventListener('click', () => {
     // Get the parent li element of the clicked button
     const li = button.closest('.timeline-item');
-    
+
     // Get the two p elements within the li element
     const paragraphs = li.querySelectorAll('p');
-    
+
     // Toggle the visibility of the paragraphs
     paragraphs.forEach(p => {
       p.classList.toggle('hidden');
@@ -203,23 +201,23 @@ const lists = document.querySelectorAll('.scroll-list');
 
 // Start the animation for each list
 lists.forEach(list => {
-  const liWidth = list.querySelector('li').offsetWidth;
-  const totalWidth = liWidth * list.children.length;
-  let translateX = 0;
-  list.style.transform = `translate(${translateX}px, 0)`;
+  // duplicate divs
+  const div = list.querySelector('div');
+  list.appendChild(div.cloneNode(true));
 
-  function animate() {
-    translateX -= 1.25;
-    if (translateX <= -liWidth) {
-      const firstItem = list.querySelector('li');
-      translateX += liWidth;
-      list.style.transform = `translate(${translateX}px, 0)`;
-      list.appendChild(firstItem);
-    } else {
-      list.style.transform = `translate(${translateX}px, 0)`;
-    }
-    requestAnimationFrame(animate);
+  // Get width of the list item
+  const duration = div.querySelectorAll('span').length * 1.5;
+  list.style.animation = `marquee ${duration}s linear infinite`;
+  console.log(duration)
+});
+
+document.querySelector(".form-btn").addEventListener("click", function () {
+  let wrapper = document.querySelector(".input-wrapper");
+  let data = {
+    name: wrapper.firstChild.value,
+    email: wrapper.lastChild.value,
+    subject: "New message from liamkopke.com",
+    message: document.querySelector("textarea").value,
   }
-
-  animate();
+  fetch("/.netlify/functions/sendEmail", data)
 });
