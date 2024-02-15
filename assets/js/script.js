@@ -211,13 +211,26 @@ lists.forEach(list => {
   console.log(duration)
 });
 
-document.querySelector(".form-btn").addEventListener("click", function () {
-  let wrapper = document.querySelector(".input-wrapper");
-  let data = {
-    name: wrapper.firstChild.value,
-    email: wrapper.lastChild.value,
-    subject: "New message from liamkopke.com",
-    message: document.querySelector("textarea").value,
-  }
-  fetch("/.netlify/functions/sendEmail", data)
+
+emailjs.init(process.env.EMAILKEY);
+
+const btn = document.getElementById('buttontxt');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'default_service';
+   const templateID = 'liamkopke';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
 });
