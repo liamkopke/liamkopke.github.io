@@ -212,7 +212,7 @@ lists.forEach(list => {
 });
 
 try{
-emailjs.init(process.env.EMAILKEY);
+emailjs.init('pB1-6hnSAgx0BhbJ9')
 }catch(error){alert(error)}
 
 try{
@@ -229,10 +229,10 @@ document.getElementById('form')
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      btn.innerHTML = 'Send Email';
+      btn.innerHTML = 'Send Message';
       alert('Sent!');
     }, (err) => {
-      btn.innerHTML = 'Send Email';
+      btn.innerHTML = 'Send Message';
       alert(JSON.stringify(err));
     });
 });
