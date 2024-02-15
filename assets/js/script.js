@@ -211,26 +211,29 @@ lists.forEach(list => {
   console.log(duration)
 });
 
-
+try{
 emailjs.init(process.env.EMAILKEY);
+}catch(error){alert(error)}
 
+try{
 const btn = document.getElementById('buttontxt');
 
 document.getElementById('form')
  .addEventListener('submit', function(event) {
    event.preventDefault();
 
-   btn.value = 'Sending...';
+   btn.innerHTML = 'Sending...';
 
    const serviceID = 'default_service';
    const templateID = 'liamkopke';
 
    emailjs.sendForm(serviceID, templateID, this)
     .then(() => {
-      btn.value = 'Send Email';
+      btn.innerHTML = 'Send Email';
       alert('Sent!');
     }, (err) => {
-      btn.value = 'Send Email';
+      btn.innerHTML = 'Send Email';
       alert(JSON.stringify(err));
     });
 });
+}catch(error){alert(error)}
